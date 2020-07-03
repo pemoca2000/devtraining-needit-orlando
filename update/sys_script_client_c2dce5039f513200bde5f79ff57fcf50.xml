@@ -18,8 +18,13 @@
         return;
     }
 
+	//g_form.addInfoMessage("do we get here 1");
+	
     // Instantiate the GetEmailAddress Script Include 
     var getEmailAddr = new GlideAjax('GetEmailAddress');
+	
+	//g_form.addInfoMessage("do we get here 2");
+	
     // Specify the getEmail method
     getEmailAddr.addParam('sysparm_name','getEmail');
     // Pass the Requested for sys_id
@@ -27,14 +32,20 @@
     // Send the request to the server
     getEmailAddr.getXML(populateEmailField);
 
-
+	//g_form.addInfoMessage("do we get here 3");
+	
     // When the response is back from the server
     function populateEmailField(response){
+		
+		//g_form.addInfoMessage("do we get here 4");
+		
         // Extract the email address from the response, clear any value from the email field, 
         // set new value in the email field
         var emailFromScriptInclude = response.responseXML.documentElement.getAttribute("answer");
         g_form.clearValue('u_requested_for_email');
         g_form.setValue('u_requested_for_email',emailFromScriptInclude);
+		//var uEmail = g_form.getValue('u_requested_for_email',emailFromScriptInclude);
+		//g_form.addInfoMessage("Adela's email address is: " + uEmail);
     }
 }]]></script>
         <sys_class_name>sys_script_client</sys_class_name>
@@ -43,7 +54,7 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>c2dce5039f513200bde5f79ff57fcf50</sys_id>
-        <sys_mod_count>0</sys_mod_count>
+        <sys_mod_count>6</sys_mod_count>
         <sys_name>NeedIt Populate Email Field</sys_name>
         <sys_overrides/>
         <sys_package display_value="NeedIt" source="x_58872_needit">6ead8e780f603200cd674f8ce1050ed1</sys_package>
@@ -51,7 +62,7 @@
         <sys_scope display_value="NeedIt">6ead8e780f603200cd674f8ce1050ed1</sys_scope>
         <sys_update_name>sys_script_client_c2dce5039f513200bde5f79ff57fcf50</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2017-03-09 00:59:27</sys_updated_on>
+        <sys_updated_on>2020-07-03 16:15:32</sys_updated_on>
         <table>x_58872_needit_needit</table>
         <type>onChange</type>
         <ui_type>0</ui_type>
